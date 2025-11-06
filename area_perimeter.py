@@ -33,14 +33,17 @@ print(f"\n{perimeter}")
 
 print(area)'''
 
-# Create a greeting (v2)
+# Create a greeting (v2.1)
 
 name = input("Hello! What is your name? ")
 print(f"Hey {name}!")
+
 keep_going = "continue"
 while keep_going == "continue":
+    
     # Covert answer to lowercase using .lower()
-    proceed = input(f"Would you like try out my Area/Perimeter Calculator? ") .lower()
+    proceed = input(f"\nWould you like try out my Area/Perimeter Calculator? ") .lower()
+    
     if proceed == "yes" or proceed == "y":
         print("That's great!")
         keep_going = ""
@@ -53,13 +56,15 @@ while keep_going == "continue":
         print("I'm not sure I understand...")
 
 def fence_length(question, min):
+    
     error = f"Whoops, that's not a number above 0."
+    
     while True:
         try:
             response = float(input(question))
-            # if response is above 0
+            # If response is above 0...
             if min < response:
-                break # This stops the loop
+                break # ...stop the loop
 
             else:
                 print(f"{error}")
@@ -69,15 +74,18 @@ def fence_length(question, min):
     return response # This makes the response available to be used
 
 while keep_going == "": # To make sure program stops when user doesn't want to use calculator
+    
     fence_width = fence_length("\nEnter the width of your fencing in meters: ", 0)
-    fence_height = fence_length("Enter the height of your fencing in meters: ", 0)
+    fence_height = fence_length("\nEnter the height of your fencing in meters: ", 0)
 
     perimeter = 2 * (fence_height + fence_width)
     area = fence_height * fence_width
 
+    # Displays the perimeter and area
     print(f"\nThe perimeter of your fencing is {perimeter} meters")
     print(f"The area of your fencing is {area} squared meters.")
 
+    # Loops the code or stops it entirely
     keep_going = input("\nPress <ENTER> to do the calculator again, or any other key to quit. ")
 
 print(f"\nThat's it then, have a nice day {name}!")
